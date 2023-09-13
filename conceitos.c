@@ -59,16 +59,23 @@ void recursao(){
     printf("\ttermo 10 de fibonacci: %d\n", fibonacci(10));
 }
 
-// void soma(int a, int b, int c){
+void somaValor(int a, int b, int result){
+    result = a + b;
+}
 
-// }
+void somaRef(int *a, int *b, int *result){
+    *result = *a + *b;
+}
 
-void passagemValor(){
-    printf("\nPassagem por valor:\n");
-    int a = 5;
-    int b = 7;
-    int c = 10;
-
+void passagemVar(){
+    printf("\nPassagem de variáveis:\n");
+    int a = 5, b = 7, result = 0;
+    printf("\ta = %d, b = %d, result = %d\n",a,b,result);
+    printf("\tsoma(a,b,result)\n");
+    somaValor(a,b,result);
+    printf("\tpassagem por valor:\n\ta = %d, b = %d, result = %d\n",a,b,result);
+    somaRef(&a,&b,&result);
+    printf("\tpassagem por referencia:\n\ta = %d, b = %d, result = %d\n",a,b,result);
 }
 
 int main(){
@@ -79,7 +86,7 @@ int main(){
     condicional();
     lacos();
     recursao();
-    passagemValor();
+    passagemVar();
 
     return 0;
 }
