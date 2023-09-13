@@ -3,6 +3,7 @@
 #include <time.h>
 #include <locale.h>
 
+// Exemplo do uso de ponteiros
 void ponteiro(){
     printf("\nPonteiros:\n");
     int a = 10;
@@ -12,6 +13,7 @@ void ponteiro(){
     printf("\ta = %d, b = %d\n", a,*b);
 }
 
+// Exemplo de Expressão Condicional
 void condicional(){
     printf("\nCondicionais:\n");
     int n = rand() % 100;
@@ -22,6 +24,7 @@ void condicional(){
         printf("\tn é impar\n");
 }
 
+// Exemplos de Laços de Repetição
 void lacos(){
     printf("\nLaços:\n");
 
@@ -47,26 +50,34 @@ void lacos(){
     printf(" = %d\n", soma);
 }
 
-int fibonacci(int n) {
+// Função Recursiva para cálculo de Fibonacci
+int fibonacci(int n, int *i) {
+    *i = *i+1;
     if (n <= 1)
         return n;
     else
-        return fibonacci(n - 1) + fibonacci(n - 2);
+        return fibonacci(n - 1, i) + fibonacci(n - 2, i);
 }
 
+// Exemplo de Recursão
 void recursao(){
+    int i = 0;
     printf("\nRecursão:\n");
-    printf("\ttermo 10 de fibonacci: %d\n", fibonacci(10));
+    printf("\ttermo 10 de fibonacci: %d\n", fibonacci(10, &i));
+    printf("\tnúmero de recursões: %d\n", i);
 }
 
+// Funcão de Soma com Passagem por Valor
 void somaValor(int a, int b, int result){
     result = a + b;
 }
 
+// Funcão de Soma com Passagem por Referência
 void somaRef(int *a, int *b, int *result){
     *result = *a + *b;
 }
 
+// Exemplos de Passagem de Variáveis por Valor e Referência
 void passagemVar(){
     printf("\nPassagem de variáveis:\n");
     int a = 5, b = 7, result = 0;
