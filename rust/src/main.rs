@@ -90,17 +90,25 @@ fn passagem_var() {
 
 fn recursao() {
     println!("\nRecursão:");
+    let n = 40;
     let mut i = 0;
-    let result = fibonacci(10, &mut i);
-    println!("\ttermo 10 de fibonacci = {}", result);
+    let mut v: &mut Vec<u32> = &mut vec![0; n+1];
+    let result = fibonacci(n.try_into().unwrap(), &mut i, &mut v);
+    println!("\ttermo {} de fibonacci = {}", n, result);
     println!("\tnúmero de recursões = {}", i);
 }
 
-fn fibonacci(n: i32, i: &mut i32) -> i32 {
+fn fibonacci(n: u32, i: &mut i32, v: &mut Vec<u32>) -> u32 {
     *i += 1;
-    if n <= 1 {
-        return n;
+    if v[(n) as usize] == 0{ 
+        if (n) <= 1 {
+            v[n as usize] = n;
+            return n;
+        } else {
+            v[n as usize] = fibonacci(n - 1, i, v) + fibonacci(n - 2, i, v);
+            return v[n as usize];
+        }
     } else {
-        return fibonacci(n - 1, i) + fibonacci(n - 2, i);
+        return v[n as usize];
     }
 }
