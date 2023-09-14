@@ -90,15 +90,15 @@ fn mult_ref(a: i32, b: i32, result: &mut i32) {
 
 fn recursao() {
     println!("\nRecursão:");
-    let n = rand::thread_rng().gen_range(3..=40);
+    let n = rand::thread_rng().gen_range(2..=100);
     let mut i = 0;
-    let mut v: &mut Vec<u32> = &mut vec![0; n+1];
+    let mut v: &mut Vec<u64> = &mut vec![0; n+1];
     let result = fibonacci(n.try_into().unwrap(), &mut i, &mut v);
     println!("\ttermo {} de fibonacci = {}", n, result);
     println!("\tnúmero de recursões = {}", i);
 }
 
-fn fibonacci(n: u32, i: &mut i32, v: &mut Vec<u32>) -> u32 {
+fn fibonacci(n: u64, i: &mut i32, v: &mut Vec<u64>) -> u64 {
     *i += 1;
     let index: usize = n.try_into().unwrap();
     if v[index] == 0{ 
