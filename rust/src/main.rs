@@ -88,10 +88,9 @@ fn mult_ref(a: i32, b: i32, result: &mut i32) {
     *result = a * b;
 }
 
-
 fn recursao() {
     println!("\nRecursão:");
-    let n = 40;
+    let n = rand::thread_rng().gen_range(3..=40);
     let mut i = 0;
     let mut v: &mut Vec<u32> = &mut vec![0; n+1];
     let result = fibonacci(n.try_into().unwrap(), &mut i, &mut v);
