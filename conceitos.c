@@ -63,7 +63,7 @@ int fibonacci(int n, int *i) {
 void recursao(){
     int i = 0;
     printf("\nRecursão:\n");
-    printf("\ttermo 10 de fibonacci: %d\n", fibonacci(10, &i));
+    printf("\ttermo 10 de fibonacci: %d\n", fibonacci(41, &i));
     printf("\tnúmero de recursões: %d\n", i);
 }
 
