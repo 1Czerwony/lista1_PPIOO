@@ -1,1 +1,1 @@
-C:\Users\augus\Desktop\UEM\PPIOO\lista1_PPIOO\rust\target\debug\rust.exe: C:\Users\augus\Desktop\UEM\PPIOO\lista1_PPIOO\rust\src\main.rs
+/home/pinheiro/Documents/Graduação/Ano\ 3/Semestre\ 1/PPIOO/lista1_PPIOO/rust/target/debug/rust: /home/pinheiro/Documents/Graduação/Ano\ 3/Semestre\ 1/PPIOO/lista1_PPIOO/rust/src/main.rs

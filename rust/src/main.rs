@@ -2,9 +2,27 @@
 use rand::Rng;
 
 fn main() {
+    ponteiro();
     condicionais();
     lacos();
     recursao();
+}
+
+fn ponteiro(){
+    println!("\nPonteiro:");
+    let mut a: i32 = rand::thread_rng().gen_range(0..=100);
+    let ponteiro: *mut i32 = &mut a;
+    println!("\tvalor de a : {a}");
+    unsafe {
+        println!("\tvalor de a apontado pelo ponteiro : {}", *ponteiro);
+    }
+
+    //incrementa o valor de a através do ponteiro
+    println!("\tincrementando em 1 o valor de a através do ponteiro");
+    unsafe{
+        *ponteiro+=1;
+    }
+    println!("\tvalor de a : {a}");
 }
 
 fn condicionais() {
