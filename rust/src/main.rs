@@ -1,9 +1,9 @@
-// use std::io;
 use rand::Rng;
 
 fn main() {
     condicionais();
     lacos();
+    passagem_var();
     recursao();
 }
 
@@ -49,6 +49,25 @@ fn lacos() {
         i -= 1;
     }
     println!(" = {mult}");
+}
+
+fn mult_valor(a: i32, b: i32, mut _result: i32) {
+    _result = a * b;
+}
+
+fn mult_ref(a: i32, b: i32, result: &mut i32) {
+    *result = a * b;
+}
+
+fn passagem_var() {
+    println!("\nPassagem de Variáveis:");
+    let a = 7;
+    let b = 8;
+    let mut result = 0;
+    mult_valor(a, b, result);
+    println!("\tPassagem por valor:\n\t{a} * {b} = {result}");
+    mult_ref(a, b, &mut result);
+    println!("\tPassagem por referência:\n\t{a} * {b} = {result}");
 }
 
 fn recursao() {
