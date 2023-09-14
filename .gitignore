@@ -1,4 +1,4 @@
 *.exe
-conceitosC
-/target/
+conceitos
+target/
 Cargo.lock
