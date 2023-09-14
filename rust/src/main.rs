@@ -19,9 +19,7 @@ fn ponteiro(){
 
     //incrementa o valor de a através do ponteiro
     println!("\tincrementando em 1 o valor de a através do ponteiro");
-    unsafe{
-        *ponteiro+=1;
-    }
+    unsafe{*ponteiro+=1;}
     println!("\tvalor de a : {a}");
 }
 
@@ -44,29 +42,42 @@ fn lacos() {
     println!("\nLaços:");
     // Repetição utilizando FOR
     let mut mult = 1;
-    for i in (1..=4).rev() {
+    print!("\tFor:\n\t");
+    for i in (1..=rand::thread_rng().gen_range(2..=10)).rev() {
         mult = mult * i;
-        if i == 4{
-            print!("\t4! = {i}");
+        if i == 1{
+            print!("{i}");
         } else {
-            print!(" * {i}");
+            print!("{i} * ");
         }
     }
-    println!(" = {mult}");
+    println!(" = {mult}\n");
 
     // Repetição utilizando WHILE
-    let mut i = 10;
+    let mut i = rand::thread_rng().gen_range(2..=10);
     mult = 1;
+    print!("\tWhile:\n\t");
     while i > 0 {
         mult = mult * i;
-        if i == 10{
-            print!("\t10! = {i}");
+        if i == 1{
+            print!("{i}");
         } else {
-            print!(" * {i}");
+            print!("{i} * ");
         }
         i -= 1;
     }
     println!(" = {mult}");
+}
+
+fn passagem_var() {
+    println!("\nPassagem de Variáveis:");
+    let a = 7;
+    let b = 8;
+    let mut result = 0;
+    mult_valor(a, b, result);
+    println!("\tPassagem por valor: {a} * {b} = {result}  (variável não muda o valor)");
+    mult_ref(a, b, &mut result);
+    println!("\tPassagem por referência: {a} * {b} = {result}");
 }
 
 fn mult_valor(a: i32, b: i32, mut _result: i32) {
@@ -77,16 +88,6 @@ fn mult_ref(a: i32, b: i32, result: &mut i32) {
     *result = a * b;
 }
 
-fn passagem_var() {
-    println!("\nPassagem de Variáveis:");
-    let a = 7;
-    let b = 8;
-    let mut result = 0;
-    mult_valor(a, b, result);
-    println!("\tPassagem por valor:\n\t{a} * {b} = {result}");
-    mult_ref(a, b, &mut result);
-    println!("\tPassagem por referência:\n\t{a} * {b} = {result}");
-}
 
 fn recursao() {
     println!("\nRecursão:");
@@ -100,15 +101,16 @@ fn recursao() {
 
 fn fibonacci(n: u32, i: &mut i32, v: &mut Vec<u32>) -> u32 {
     *i += 1;
-    if v[(n) as usize] == 0{ 
+    let index: usize = n.try_into().unwrap();
+    if v[index] == 0{ 
         if (n) <= 1 {
-            v[n as usize] = n;
+            v[index] = n;
             return n;
         } else {
-            v[n as usize] = fibonacci(n - 1, i, v) + fibonacci(n - 2, i, v);
-            return v[n as usize];
+            v[index] = fibonacci(n - 1, i, v) + fibonacci(n - 2, i, v);
+            return v[index];
         }
     } else {
-        return v[n as usize];
+        return v[index];
     }
 }
