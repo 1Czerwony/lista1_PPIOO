@@ -50,22 +50,6 @@ void lacos(){
     printf(" = %d\n", soma);
 }
 
-// Função Recursiva para cálculo de Fibonacci
-int fibonacci(int n, int *i) {
-    *i = *i+1;
-    if (n <= 1)
-        return n;
-    else
-        return fibonacci(n - 1, i) + fibonacci(n - 2, i);
-}
-
-// Exemplo de Recursão
-void recursao(){
-    int i = 0;
-    printf("\nRecursão:\n");
-    printf("\ttermo 10 de fibonacci: %d\n", fibonacci(41, &i));
-    printf("\tnúmero de recursões: %d\n", i);
-}
 
 // Funcão de Soma com Passagem por Valor
 void somaValor(int a, int b, int result){
@@ -89,6 +73,23 @@ void passagemVar(){
     printf("\tpassagem por referencia:\n\ta = %d, b = %d, result = %d\n",a,b,result);
 }
 
+// Função Recursiva para cálculo de Fibonacci
+int fibonacci(int n, int *i) {
+    *i = *i+1;
+    if (n <= 1)
+        return n;
+    else
+        return fibonacci(n - 1, i) + fibonacci(n - 2, i);
+}
+
+// Exemplo de Recursão
+void recursao(){
+    int i = 0;
+    printf("\nRecursão:\n");
+    printf("\ttermo 10 de fibonacci: %d\n", fibonacci(10, &i));
+    printf("\tnúmero de recursões: %d\n", i);
+}
+
 int main(){
     srand(time(NULL));
     setlocale(LC_ALL, "");
@@ -96,8 +97,8 @@ int main(){
     ponteiro();
     condicional();
     lacos();
-    recursao();
     passagemVar();
+    recursao();
 
     return 0;
 }

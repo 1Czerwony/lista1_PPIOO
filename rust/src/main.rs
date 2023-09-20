@@ -8,6 +8,7 @@ fn main() {
     recursao();
 }
 
+// Exemplos de ponteiros
 fn ponteiro(){
     println!("\nPonteiro:");
     let mut a: i32 = rand::thread_rng().gen_range(0..=100);
@@ -23,6 +24,7 @@ fn ponteiro(){
     println!("\tvalor de a : {a}");
 }
 
+// Exemplos de expressões condicionais
 fn condicionais() {
     println!("\nCondicionais:");
     let n = rand::thread_rng().gen_range(-10..=10);
@@ -38,6 +40,7 @@ fn condicionais() {
     }
 }
 
+// Exemplos de laços de repetição
 fn lacos() {
     println!("\nLaços:");
     // Repetição utilizando FOR
@@ -69,6 +72,7 @@ fn lacos() {
     println!(" = {mult}");
 }
 
+// Exeplos de passagem de variáveis
 fn passagem_var() {
     println!("\nPassagem de Variáveis:");
     let a = 7;
@@ -80,14 +84,17 @@ fn passagem_var() {
     println!("\tPassagem por referência: {a} * {b} = {result}");
 }
 
+// Função de multiplicação com passagem por valor
 fn mult_valor(a: i32, b: i32, mut _result: i32) {
     _result = a * b;
 }
 
+// Função de multiplicação com passagem por referência
 fn mult_ref(a: i32, b: i32, result: &mut i32) {
     *result = a * b;
 }
 
+// Exemplo de função recursiva
 fn recursao() {
     println!("\nRecursão:");
     let n = rand::thread_rng().gen_range(2..=100);
@@ -98,6 +105,7 @@ fn recursao() {
     println!("\tnúmero de recursões = {}", i);
 }
 
+// Função para cálculo de fibonacci recursiva e memoizada
 fn fibonacci(n: u64, i: &mut i32, v: &mut Vec<u64>) -> u64 {
     *i += 1;
     let index: usize = n.try_into().unwrap();
